@@ -4,13 +4,104 @@
 		<meta charset="UTF-8">
 		<title>Relato Informática</title>
 
+<!-- link efeito corrediço -->
+		<link rel="stylesheet" href="bootstrap.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="bootstrap-responsive.css">
+<!-- fim link efeito corrediço -->
+		
 		<link rel="stylesheet" href="cssparallax/style.css">
 		<script src="jsparallax/jquery.js"></script>
 		<script src="jsparallax/scripts.js"></script>
-		
 		<link rel="stylesheet" href="styles.css">
    		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    		<script src="script.js"></script>
+
+<!-- estilo corrediço -->
+
+<style type="text/css">
+		body{background:#FFF }
+    	.top-sup{
+			background:#63AB3F;
+			height:25px;
+			color:#FFF;
+			font-size:11px;
+			margin-bottom:20px;
+			position: fixed;
+			width:100%;
+		}
+			.top-sup p{ margin:0; padding: 5px; }
+			.top-sup p.titulo{float:left;}
+			.top-sup p.link{float:right;}
+			.top-sup a{ color:#FFF }
+			
+		.advertise{
+			width:468px;
+			height:60px;
+			margin:10px auto;
+			position:relative;
+			border:4px #E1E1E1 solid;
+			position: fixed;
+			left:20px;
+			bottom:20px;
+		}
+			.advertise a.close{
+				position:absolute;
+				right:-5px;
+				top:65px;
+				background:#E1E1E1;
+				padding:3px 6px;
+				display:block;
+			}
+		
+		.topo{
+			position:fixed;
+			left:0;
+			top:0px;
+			width:100%;
+			heigth:30px;
+		}
+			.topo .container{background:#63AB3F;}
+		
+		ul.menu{
+			margin:0;
+			padding:5px;
+			list-style:none;
+		}
+			ul.menu li{float:left;}
+			ul.menu a{
+				display:block;
+				padding:8px 15px;
+				font-size:15px;
+				color:#FFF;
+			}
+			ul.menu a:hover{
+				background:#FFF;
+				color:#333;
+				text-decoration:none;
+			}
+		ol{
+			margin:0;
+			padding:0;
+			list-style:none;
+			float:right;
+		}
+			ol li{float:left;}
+			ol a{
+				color:#fff;
+				padding:5px 10px;
+			}
+			ol a:hover{color:#fff}			
+		
+		.dados{
+			padding-top:100px;
+			height:600px;
+		}
+		
+    </style>
+    
+	<!-- fim style link corrediço -->
+	<script src="jquery.js"></script>
 
 	</head>
 
@@ -18,7 +109,28 @@
 
 	<div><img src="logo.png" height="80" width="150"></div>
 	
-		<div id='cssmenu'>
+		<!-- testes efeito corrediço -->
+		
+		<div class="container">
+    <!-- CÃ³digo aqui -->
+    
+    <div class="topo">
+		<div class="container">
+			<ul class="menu">
+				<li class='active'><a href='#'>Inicio</a></li>
+	   			<li class='active' ><a href='#linkprogramacao'>Linguagem de Programação</a></li>
+	  	 		<li><a href='#linkdesenvolvimentosistema'>Desenvolvimento Sistemas</a></li>
+	   			<li><a href='#linksites'>Desenvolvimento Sites</a></li>
+	   			<li><a href='#linknuvem'>Softwares</a></li>
+	   			<li><a href='#linkaplicativos'>Aplicativos</a></li>
+	   			<li><a href='#linkcontato'>Contact</a></li>
+	   			
+			</ul>
+			
+		</div>
+    </div>
+    
+    <div id='cssmenu'>
 		<ul>
 	   		<li class='active'><a href='#'>Inicio</a></li>
 	   		<li class='active'><a href="#linkprogramacao">Linguagem de Programação</a></li>
@@ -26,7 +138,41 @@
 	   		<li><a href='#'>Contact</a></li>
 		</ul>
 		</div>
+    <!-- Fim do cÃ³digo -->
+    </div>
+    <script src="jquery.easing.min.js"></script>	
+    <script type="text/javascript">
+    	$(function(){
+			$('.close').click(function(){
+				$('.advertise').fadeOut(300);
+			});
+			
+			//inicia a navegacao
+			navegation($('ul.menu a'),0);
+		});
+		
+		//funÃ§Ã£o para o menu deslizante
+		function navegation(elemento,desconto){
+			elemento.bind('click',function(event){
+				var $anchor = $(this);
+				var calculo = $($anchor.attr('href')).offset().top;
+				if(desconto){
+					var goto = calculo-desconto;
+				}else{
+					var goto = calculo;
+				}
+				
+				$('html, body').stop().animate({
+					scrollTop: goto
+				}, 900,'easeInOutExpo');
+			
+				event.preventDefault();
+			});				
+		}		
+		
+    </script>
 	
+		<!-- fim teste efeito corrediço -->
 		<div class="qualquer_coisa">
 			<h2> Relato informática consultoria e desenvolvimento de sistemas</h2>
 			<p>
@@ -35,10 +181,9 @@
 		</div>
 
 		<div class="parallax div2" data-divisor="4">
-			
 		</div>
 
-		<div class="linkprogramacao">
+		<div class="qualquer_coisa" class="container dados" id="linkprogramacao">
 			<h2>Linguagem de Programação</h2>
 			<p>
 			O Java é uma tecnologia usada para desenvolver aplicações que tornam a Web mais divertida e útil. 
@@ -49,7 +194,7 @@
 		<div class="parallax div3" data-divisor="3">
 		</div>
 
-		<div class="qualquer_coisa">
+		<div class="qualquer_coisa" class="container dados" id="linkdesenvolvimentosistema">
 			<h2>Desenvolvimento de Sistemas</h2>
 			<p>
 			Desenvolvemos sistemas sob encomenda utilizando preferencialmente a linguagem Java, mas podemos utilizar também as linguagens Delphi, C++ e C# para funcionalidades específicas.
@@ -60,7 +205,7 @@
 		<div class="parallax div4">
 		</div>
 
-		<div class="qualquer_coisa">
+		<div class="qualquer_coisa" class="container dados" id="linksites">
 			<h2>Desenvolvimento de Sites</h2>
 			Em um mundo globalizado, ter um site na internet não é mais um luxo para poucos, e sim uma regra geral para empresas que querem sobreviver em um mercado cada vez mais agressivo. 
 			Ter uma página na internet se tornou indispensável para empresas de todos os tamanhos: grande, médio ou pequeno porte. 
@@ -74,7 +219,7 @@
 		<div class="parallax div5" data-divisor="2">
 		</div>
 
-		<div class="qualquer_coisa">
+		<div class="qualquer_coisa" class="container dados" id="linknuvem">
 			<h2>Computação em nuvem</h2>
 			<p>
 			O conceito de computação em nuvem (em inglês, cloud computing) refere-se à utilização da memória e das capacidades de armazenamento e cálculo de computadores e servidores compartilhados e interligados por meio da Internet, seguindo o princípio da computação em grade. 1
@@ -86,7 +231,7 @@
 		<div class="parallax div6">
 		</div>
 		
-		<div class="qualquer_coisa">
+		<div class="qualquer_coisa" class="container dados" id="linkaplicativos">
 			<h2>Desenvolvimento de Aplicativos</h2>
 			<p>
 			
