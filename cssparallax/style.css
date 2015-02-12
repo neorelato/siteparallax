@@ -42,11 +42,11 @@ html {
 	background-image: url(../imagens/img1.jpg);
 }
 .div2 {
-	background-image: url(../imagens/parceria.jpg);
+	background-image: url(../imagens/parceiros.jpg);
 	background-repeat:no-repeat;
 }
 .div3 {
-	background-image: url(../imagens/img2.jpg);
+	background-image: url(../imagens/programac.png);
 }
 .div4 {
 	background-image: url(../imagens/img3.jpg);
@@ -55,7 +55,7 @@ html {
 	background-image: url(../imagens/img5.jpg);
 }
 .div6 {
-	background-image: url(../imagens/img4.jpg);
+	background-image: url(../imagens/computnuvem.jpg);
 }
 
 /* Configura o texto lorem ipsum */
